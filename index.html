@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Mia PWA</title>
+
+    <!-- Colore della barra superiore su Android -->
+    <meta name="theme-color" content="#0d6efd">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- iOS (Apple richiede meta tag speciali) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="La Mia App">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .app {
+            text-align: center;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app">
+    <h1>Benvenuto nella mia PWA!</h1>
+    <p>Sembra un'app, ma è un sito 😎</p>
+
+    <button onclick="alert('Hai cliccato!')">Premi</button>
+</div>
+
+<script>
+    // Registra il service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js');
+    }
+</script>
+
+</body>
+</html>
